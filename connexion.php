@@ -12,15 +12,21 @@
 	$password = "Yann&Esteban68";
 	$db_name = "badminton";
 	
-// Create connection
+// Créer connection
 $conn = new mysqli($servername, $username, $password, $db_name);
-// Create connection
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+echo "Connected successfully";
+// Recuperation des information de la page précédente
 $mdp=$_POST["pass1"];
 $mail=$_POST["email1"];
 $sql="SELECT * FROM utilisateur WHERE mail=\"".$mail."\" AND MdP=PASSWORD(\"".$mdp."\")";
+//effectuer la requête 
 $result = $conn->query($sql);
-
-
+echo "test";
+//redirection
 if($row = $result->fetch_assoc()) {
     echo "Bonjour " . $row["nom"]. " vous êtes connecté <br/>";
   } else {
