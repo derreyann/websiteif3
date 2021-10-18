@@ -7,13 +7,8 @@
 
 <body>
 	<?php
-	$servername = "localhost";
-	$username = "root";
-	$password = "";
-	$db_name = "badminton";
+	include('BDD.php');
 	
-// Créer connection
-$conn = new mysqli($servername, $username, $password, $db_name);
 
 // Recuperation des information de la page précédente
 $mdp=$_POST["pass1"];
@@ -24,9 +19,13 @@ $result = $conn->query($sql);
 //redirection
 if($result->num_rows > 0) {
 	$row = $result->fetch_assoc();
+	session_start();
+	$_SESSION["mail"]=$mail;
+	$_SESSION["mdp"]=$mdp;
     echo "Bonjour " . $row["nom"]. " vous êtes connecté <br/>";
+	header('Location: profile.php');
   } else {
-	echo "Erreur mail ou mdp";
+	header("location: index.php?message=Id ou mot de passe incorrecte");
 }
 
 	
