@@ -11,6 +11,7 @@
 	Prénom: <input type="text" name="prenom" id="prenom"><br/>
 	E-mail: <input type="email" name="email" id="email"><br/>
 	Mot de passe: <input type="password" name="motdepasse" id="motdepasse"><br/>
-	Date de naissance: <input type="date" name="date" id="date"><br/></form>
+	Date de naissance: <input type="date" name="date" id="date"><br/><br/>
+	<input type="submit"></form>
 </body>
 </html>
