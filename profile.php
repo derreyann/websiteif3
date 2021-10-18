@@ -3,19 +3,16 @@
 <head>
 <meta charset="utf-8">
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$db_name = "badminton";
-$conn = new mysqli($servername, $username, $password, $db_name);
+include("BDD.php");
 session_start();
-    $_SESSION["mail"]>$mail;
-    $_SESSION["mdp"]>$mdp;
-$prenom="SELECT prenom FROM utilisateur WHERE mail=\"".$mail."\" AND MdP=PASSWORD(\"".$mdp."\");";
+
+$sql="SELECT prenom FROM utilisateur WHERE mail=\"".$_SESSION["mail"]."\" AND MdP=PASSWORD(\"".$_SESSION["mdp"]."\");";
+$result=$conn->query($sql);
+$row = $result->fetch_assoc();
 ?>
 <title>Untitled Document</title>
 </head>
-<h1>Bienvenue sur votre profil <?php echo "$prenom" ?></h1>
+<h1>Bienvenue sur votre profil <?php echo $row["prenom"] ?></h1>
 
 <?php
 echo "Hello World!";
