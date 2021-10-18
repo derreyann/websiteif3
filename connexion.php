@@ -9,7 +9,7 @@
 	<?php
 	$servername = "localhost";
 	$username = "root";
-	$password = "Yann&Esteban68";
+	$password = "";
 	$db_name = "badminton";
 	
 // Créer connection
