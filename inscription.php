@@ -6,6 +6,9 @@
 </head>
 
 <body>
+	<?php if(isset($_GET["message"])){
+	echo $_GET["message"];
+	}?>
 	<form method="POST" action="enregistrement.php">
 	Nom: <input type="text" name="nom" id="nom"><br/>
 	Prénom: <input type="text" name="prenom" id="prenom"><br/>

@@ -17,7 +17,7 @@
 	</form>
 	</p>
 	<p>
-		<button onclick="window.location.href = 'inscription.html';">Inscription</button>
+		<button onclick="window.location.href = 'inscription.php';">Inscription</button>
 	</p>
 </body>
 </html>
