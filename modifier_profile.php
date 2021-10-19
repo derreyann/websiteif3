@@ -8,7 +8,9 @@
 <body>
 	<?php 
 	session_start();
-		
+	$mdp=$_SESSION["mdp"];
+	$mail=$_SESSION["mail"];
+	
 	if(isset($_SESSION["mail"])) {
 		//Se connecte à la base de donnée
 		include("BDD.php"); 
@@ -19,8 +21,6 @@
 			
 		}else{
 			//Si non, récupère l'id de l'utilisateur en cours
-			$mdp=$_SESSION["mdp"];
-			$mail=$_SESSION["mail"];
 			$sql="SELECT * FROM utilisateur WHERE mail=\"".$mail."\" AND MdP=PASSWORD(\"".$mdp."\");";
 			$result = $conn->query($sql);
 			//redirection
@@ -41,8 +41,8 @@
 				
 				$sql="SELECT * FROM utilisateur WHERE mail=\"".$mail."\" AND MdP=PASSWORD(\"".$mdp."\");";
 				$result2 = $conn->query($sql);
-				
-				if($result2["type"]!=0){
+				$row2= $result2->fetch_assoc();
+				if($row2["type_compte"]!=0){
 					header("Location: index.php?message=Accès interdit");
 				}
 				
