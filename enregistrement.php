@@ -7,12 +7,14 @@
 
 <body>
 	<?php
+	//connecter la base de donnée
 	include("BDD.php");
 	
+	//Recherche si un utilisateur existe déjà avec l'e-mail
 	$sql="SELECT * FROM utilisateur WHERE mail=\"".$_POST["email"]."\";";
 	$result = $conn->query($sql);
 	
-	
+	//Si l'utilisateur existe, le renvois sur la page d'inscription avec une erreur
 	if($result->num_rows > 0) {
 	
 		header('Location: inscription.php?message=E-mail déjà dans la base de donnée');
@@ -23,11 +25,12 @@
 
 
 		$conn->query($sql);
-
+		
+		//Initie la session pour que l'utilisateur reste connecté
 		session_start();
 		$_SESSION["mail"]=$_POST["email"];
 		$_SESSION["mdp"]=$_POST["motdepasse"];
-	
+		//Le revoie sur son profile
 		header('Location: profile.php');
 	}
 	;?>

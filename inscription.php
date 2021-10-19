@@ -8,6 +8,7 @@
 <body>
 	<?php if(isset($_GET["message"])){
 	echo $_GET["message"];
+	//Permet d'afficher un message d'erreur
 	}?>
 	<form method="POST" action="enregistrement.php">
 	

@@ -7,6 +7,8 @@
 
 <body>
 	<?php 
+	//Cette page permet d'avoir tous les paramètre de connection de la base de donnée au même endroite, ainsi si un paramètre doit être changé, il le sera pour toutes les pages
+	//mise à jour des paramètres de la base de donné
 	$servername = "localhost";
 	$username = "root";
 	$password = "";

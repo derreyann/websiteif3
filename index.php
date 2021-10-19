@@ -9,7 +9,8 @@
 	<p>
 	<?php if(isset($_GET["message"])){
 	echo $_GET["message"];
-}?>
+	}//Permet d'affiché un message d'erreur
+	?>
 	<form method="POST" action="connexion.php">
 		<table>
 			<tr><td>E-mail:</td><td> <input type="email" name="email1" id="email1" required></td></tr>
