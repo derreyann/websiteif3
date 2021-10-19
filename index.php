@@ -11,8 +11,10 @@
 	echo $_GET["message"];
 }?>
 	<form method="POST" action="connexion.php">
-		E-mail: <input type="email" name="email1" id="email1" required><br/>
-		Mot de passe: <input type="password" name="pass1" id="pass1" required><br/>
+		<table>
+			<tr><td>E-mail:</td><td> <input type="email" name="email1" id="email1" required></td></tr>
+			<tr><td>Mot de passe:</td><td><input type="password" name="pass1" id="pass1" required></td></tr></table>
+		
 		<input type="submit" value="Se connecter">
 	</form>
 	</p>
