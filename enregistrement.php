@@ -9,17 +9,27 @@
 	<?php
 	include("BDD.php");
 	
-	// prepare and bind
-	$sql="INSERT INTO utilisateur (nom, prenom, mail, MdP,naissance,type_compte) VALUES (\"".$_POST["nom"]."\", \"".$_POST["prenom"]."\",\"".$_POST["email"]."\",PASSWORD(\"".$_POST["motdepasse"]."\"),\"".$_POST["date"]."\",1)";
-
+	$sql="SELECT * FROM utilisateur WHERE mail=\"".$_POST["email"]."\";";
+	$result = $conn->query($sql);
 	
-	$conn->query($sql);
-
-	session_start();
-	$_SESSION["mail"]=$_POST["email"];
-	$_SESSION["mdp"]=$_POST["motdepasse"];
 	
-	header('Location: profile.php');
+	if($result->num_rows > 0) {
+	
+		header('Location: inscription.php?message=E-mail déjà dans la base de donnée');
+		
+	}else{
+		// inserer les information dans la base de donnée
+		$sql="INSERT INTO utilisateur (nom, prenom, mail, MdP,naissance,type_compte) VALUES (\"".$_POST["nom"]."\", \"".$_POST["prenom"]."\",\"".$_POST["email"]."\",PASSWORD(\"".$_POST["motdepasse"]."\"),\"".$_POST["date"]."\",1)";
+
+
+		$conn->query($sql);
+
+		session_start();
+		$_SESSION["mail"]=$_POST["email"];
+		$_SESSION["mdp"]=$_POST["motdepasse"];
+	
+		header('Location: profile.php');
+	}
 	;?>
 	
 </body>
