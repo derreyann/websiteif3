@@ -6,7 +6,9 @@
 </head>
 
 <body>
-	<?php if(isset($_GET["message"])){
+	
+	<?php include("menu.php");
+	if(isset($_GET["message"])){
 	echo $_GET["message"];
 	//Permet d'afficher un message d'erreur
 	}?>

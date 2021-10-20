@@ -7,8 +7,7 @@
 
 <body>
 	<?php 
-	
-	session_start();
+	include("menu.php");
 	//Se connecte à la base de donnée
 	include("BDD.php"); 
 	

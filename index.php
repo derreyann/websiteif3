@@ -5,9 +5,10 @@
 <title>Accueil</title>
 </head>
 
-<body><p>Bienvenue au Club de Badminton</p>
+<body>
 	<p>
-	<?php if(isset($_GET["message"])){
+	<?php include("menu.php");
+	if(isset($_GET["message"])){
 	echo $_GET["message"];
 	}//Permet d'affiché un message d'erreur
 	?>
