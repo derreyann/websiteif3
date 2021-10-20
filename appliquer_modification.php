@@ -45,11 +45,10 @@
 						header("Location: index.php?message=Accès interdit");
 					}
 				}
-				
+				//modifie les informations de l'utilisateur
 				$sql='UPDATE utilisateur SET mail="'.$_POST["email"].'",nom="'.$_POST["nom"].'",prenom="'.$_POST["prenom"].'",naissance="'.$_POST["date"].'" WHERE id='.$id.';';
 				$conn->query($sql);
-				echo $sql;
-				//header("Location: profile.php");
+				header("Location: profile.php");
 			} else {
 				echo "Utilisateur introuvable";
 			}
