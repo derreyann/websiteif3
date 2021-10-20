@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Document sans nom</title>
+<title>Inscription</title>
 </head>
 
 <body>

@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Document sans titre</title>
+<title>Modifier profile</title>
 </head>
 
 <body>

@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>index</title>
+<title>Accueil</title>
 </head>
 
 <body><p>Bienvenue au Club de Badminton</p>

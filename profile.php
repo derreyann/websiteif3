@@ -10,7 +10,7 @@ $sql="SELECT prenom FROM utilisateur WHERE mail=\"".$_SESSION["mail"]."\" AND Md
 $result=$conn->query($sql);
 $row = $result->fetch_assoc();
 ?>
-<title>Untitled Document</title>
+<title>Profile</title>
 </head>
 <h1>Bienvenue sur votre profil <?php echo $row["prenom"] ?></h1>
 
