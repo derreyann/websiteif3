@@ -17,6 +17,7 @@ $row = $result->fetch_assoc();
 <?php
 echo "Hello World!";
 ?>
+	<button onclick="window.location.href = 'modifier_profile.php';">Modifier votre profile</button>
 
 <body>
 <form id="form" name="form" method="post">
