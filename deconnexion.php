@@ -5,6 +5,10 @@
 <title>Document sans titre</title>
 </head>
 
-<body>Work in progress
+<body><?php
+	session_start();
+	session_destroy();
+	header("Location:index.php");
+	?>
 </body>
 </html>

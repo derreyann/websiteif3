@@ -13,13 +13,14 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
 <body>
 
 <?php session_start();
+	//Si un utilisateur est connecté affiche un menu
 	if (isset($_SESSION["mail"])) {
 echo '<nav>
 		<ul>
     		<li><a href="index.php">Accueil</a></li>
-			<li><a href="profile.php">Utilisateur</a></li>
+			<li><a href="profile.php">Votre profile</a></li>
 			<li><a href="recherche.php">Chercher un utilisateur</a></li>
-			<li><a href="licence.php">Licence</a></li>
+			<li><a href="deconnexion.php">Deconnexion</a></li>
 		 </ul>
 		</nav>';
 	} ?>
