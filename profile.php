@@ -20,7 +20,7 @@ $row = $result->fetch_assoc();
 <h1>Bienvenue sur votre profil <?php echo $row["prenom"] ?></h1>
 
 // Bouton déconnection (clear session)
-<a href="logout.php">Déconnection</a>
+<a href="deconnexion.php">Déconnection</a>
     
 <?php
 echo "Hello World!";

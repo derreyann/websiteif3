@@ -2,13 +2,17 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Document sans titre</title>
+<title>Décoloco</title>
 </head>
 
-<body><?php
-	session_start();
-	session_destroy();
-	header("Location:index.php");
-	?>
+<body>
+    <?php
+session_start();
+unset($_SESSION);
+session_destroy();
+session_write_close();
+header('Location: /');
+die;
+?>
 </body>
 </html>
