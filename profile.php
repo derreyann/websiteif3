@@ -52,13 +52,13 @@ echo "Hello World!";
     //id 
 <?php
 if($row[type_compte] == 0){
-         $type = "Non-Cotisant";
+         $type = "Administrateur";
     }
        elseif($row[type_compte] == 1){
-         $type = "Cotisant";
+         $type = "Membre";
        }
         elseif($row[type_compte] == 2){
-         $type = "Administrateur";
+         $type = "Invité";
         }
     ?>
 <tr>
