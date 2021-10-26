@@ -22,8 +22,6 @@
 		}else{
 		header("Location:index.php?message=Page réservé aux admins");
 		}
-		
-		//inclure code
 	}else{
 		header("Location:index.php?message=Accès interdit sans connexion");
 		 }
