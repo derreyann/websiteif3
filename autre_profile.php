@@ -27,6 +27,7 @@
 			//Verification admin
 			if($row2["type_compte"]==0){
 				echo'<button onclick="window.location.href = \'modifier_profile.php?id='.$_GET["id"].'\';">Modifier Profile</button>';
+				echo'<button onclick="window.location.href = \'licence.php?id='.$_GET["id"].'\';">Ajouter Licence</button>';
 			}
 			
 		}else{
@@ -35,7 +36,7 @@
 			
 		
 	}else{
-		header:"Location:index.php?Accès interdit sans connexion";
+		header("Location:index.php?Accès interdit sans connexion");
 		 }
 	?>
 </body>
