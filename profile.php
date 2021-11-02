@@ -51,8 +51,26 @@ if($row["type_compte"] == 0){
 <tr>
 <td>Type de compte:</td><td><?php echo $type; ?></td>
 </tr>
-<tr>
 </table>
+<?php echo "Ton id est ", $row["id"]; ?>
 
+<h1>Mes réservations</h1>
+
+<?php
+// A REMPLACER AVEC LES IDS USERS 1 (FAITS PAR USER SESSION)
+// CODE A REUTILISER POUR LES MATCH JOUES, FACILE A ADAPTER MAIS CASSE COUILLE AU DEBUT
+$sql="SELECT * FROM reservations";
+$result = $conn->query($sql);
+if(!empty($result) && $result->num_rows > 0) {
+    while ($row2 = $result->fetch_assoc()) {
+        //CONVERTIR LES PRENOMS ET LES NOMS DE L'ID JOUEUR2  + AVEC LES VARIABLES CONVERTIES DU TERRAIN
+        print_r($row2['prenom']);
+        echo "<p> </p>";
+
+    }
+}else{
+    echo "Vous n'avez pas de réservations";
+}
+?>
 </body>
 </html>
