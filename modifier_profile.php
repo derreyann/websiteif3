@@ -53,7 +53,7 @@
 				<tr><td>Nom:<td/><td> <input type="text" name="nom" id="nom" value="'.$row["nom"].'"><td/></tr>
 				<tr><td>Prénom:<td/><td> <input type="text" name="prenom" id="prenom" value="'.$row["prenom"].'"><td/><tr/>
 				<tr><td>E-mail:<td/><td> <input type="email" name="email" id="email" value="'.$row["mail"].'"><td/><tr/>
-				<tr><td>Date de naissance:<td/><td> <input type="date" name="date" id="date"value="'.$row["naissance"].'"><td/><tr/></table>
+				<tr><td>Date de naissance:<td/><td> <input type="date" name="date" id="date" value="'.$row["naissance"].'"><td/><tr/></table>
 				<input type="submit"></form>';
 
 			} else {
