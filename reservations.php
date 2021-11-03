@@ -4,7 +4,11 @@
 </head>
 <body>
 <?php include("menu.php");
-include("BDD.php");?>
+include("BDD.php");
+if(isset($_GET["message"])){
+echo $_GET["message"];
+//Permet d'afficher un message d'erreur
+}?>
 <title>Faire une réservation</title>
 <h1>Réservations en cours</h1>
 <?php
@@ -40,19 +44,19 @@ if(!empty($result) && $result->num_rows > 0) { ?>
 
 <br>
 <h1>Faire une réservation</h1>
-<form method="POST" action="enregistrement.php">
+<form method="POST" action="add_reservations.php">
 
     <table>
-        <tr><td>Joueur 1:  <input type="email" name="j1" id="j1" required><td/></tr>
-        <tr><td>Joueur 2:  <input type="email" name="j2" id="j2" required><td/><tr/>
+        <tr><td>Joueur 1:  <input type="text" name="j1" id="j1" required><td/></tr>
+        <tr><td>Joueur 2:  <input type="text" name="j2" id="j2" required><td/><tr/>
         <tr><td>Terrain : <select name="terrain" id="terrain" required>
                     <option value="0">Couvert</option>
                     <option value="1">Découvert 1</option>
                     <option value="2" selected>Découvert 2</option>
                 </select><td/><tr/>
         <tr><td>Date:  <input type="date" name="date" id="date" required><td/><tr/>
-        <tr><td>Heure: <input type="time" name="heure" id="heure" required><td/><tr/></table>
-        <tr><td>Durée (h): <input type="number" name="durée" id="durée" required><td/><tr/></table>
+        <tr><td>Heure: <input type="number" name="heure" id="heure" min="8" max="19" required> h<td/><tr/></table>
+        <tr><td>Durée (h): <input type="number" name="durée" id="durée" min="1" max="4" required><td/><tr/></table>
     <br><br>
     <input type="submit"></form>
 </body>
