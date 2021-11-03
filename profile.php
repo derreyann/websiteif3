@@ -54,23 +54,50 @@ if($row["type_compte"] == 0){
 </table>
 <?php echo "Ton id est ", $row["id"]; ?>
 
+<p> </p>
+
 <h1>Mes réservations</h1>
 
 <?php
 // A REMPLACER AVEC LES IDS USERS 1 (FAITS PAR USER SESSION)
 // CODE A REUTILISER POUR LES MATCH JOUES, FACILE A ADAPTER MAIS CASSE COUILLE AU DEBUT
-$sql="SELECT * FROM reservations";
+$sql="SELECT * FROM reservation";
 $result = $conn->query($sql);
 if(!empty($result) && $result->num_rows > 0) {
-    while ($row2 = $result->fetch_assoc()) {
+    /* while ($row2 = $result->fetch_assoc()) {
         //CONVERTIR LES PRENOMS ET LES NOMS DE L'ID JOUEUR2  + AVEC LES VARIABLES CONVERTIES DU TERRAIN
-        print_r($row2['prenom']);
-        echo "<p> </p>";
+        print_r($row2['id_user_1']);
+        echo "<p> </p>"; */ ?>
 
-    }
+        <table>
+        <tr>
+        <th>Joueur 1</th>
+        <th>Joueur 2</th>
+        <th>Terrain</th>
+        <th>Date</th>
+        <th>Horaire</th>
+        <th>Durée</th>
+        </tr>
+            <?php    while ($row2 = $result->fetch_assoc()) { ?>
+                <tr>
+                    <td width="150"><?php echo $row2['id_user_1'] ?></td>
+                    <td><?php echo $row2['id_user_2'] ?></td>
+                    <td><?php echo $row2['id_terrain'] ?></td>
+                    <td><?php echo $row2['date'] ?></td>
+                    <td><?php echo$row2['h_debut'] ?></td>
+                    <td><?php echo $row2['durée'] ?></td>
+                </tr>
+            <?php } ?>
+        </table>
+<?php
 }else{
     echo "Vous n'avez pas de réservations";
 }
 ?>
+
+<p> </p>
+
+<button onclick="window.location.href = 'reservations.php';">Ajouter une réservation</button>
+
 </body>
 </html>
