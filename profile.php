@@ -77,6 +77,7 @@ if(!empty($result) && $result->num_rows > 0) {
         <th>Horaire </th>
         <th>Durée</th><th>
         <th> </th>
+        <th> </th>
         </tr>
             <?php while ($row2 = $result->fetch_assoc()) {?>
 
@@ -96,6 +97,15 @@ if(!empty($result) && $result->num_rows > 0) {
                             <input type="hidden" name="durée" value="<?php echo $row2['durée'];?>" />
                             <input type="submit" value="Edit"/><tb>
                             </form>
+                    <td><form action="aurevoir_reservation.php" method="POST">
+                            <input type="hidden" name="id1" value="<?php echo $row2['id_user_1'];?>" />
+                            <input type="hidden" name="id2" value="<?php echo $row2['id_user_2'];?>" />
+                            <input type="hidden" name="idterrain" value="<?php echo $row2['id_terrain'];?>" />
+                            <input type="hidden" name="date" value="<?php echo $row2['date'];?>" />
+                            <input type="hidden" name="h_debut" value="<?php echo $row2['h_debut'];?>" />
+                            <input type="hidden" name="durée" value="<?php echo $row2['durée'];?>" />
+                            <input type="submit" value="Delete"/><tb>
+                        </form>
                         </tb>
                     </td>
                 </tr>
