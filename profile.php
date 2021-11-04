@@ -78,7 +78,8 @@ if(!empty($result) && $result->num_rows > 0) {
         <th>Durée</th><th>
         <th> </th>
         </tr>
-            <?php while ($row2 = $result->fetch_assoc()) { ?>
+            <?php while ($row2 = $result->fetch_assoc()) {?>
+
                 <tr>
                     <td><?php echo $row2['id_user_1'] ?></td>
                     <td><?php echo $row2['id_user_2'] ?></td>
@@ -87,7 +88,12 @@ if(!empty($result) && $result->num_rows > 0) {
                     <td><?php echo $row2['h_debut'] ?></td>
                     <td><?php echo $row2['durée'] ?><tb>
                     <td><form action="edit_reservation.php" method="POST">
-                            <input type="hidden" name="joe" value="<?php echo $row2['id_user_1'], $row2['id_user_2']?>" />
+                            <input type="hidden" name="id1" value="<?php echo $row2['id_user_1'];?>" />
+                            <input type="hidden" name="id2" value="<?php echo $row2['id_user_2'];?>" />
+                            <input type="hidden" name="idterrain" value="<?php echo $row2['id_terrain'];?>" />
+                            <input type="hidden" name="date" value="<?php echo $row2['date'];?>" />
+                            <input type="hidden" name="h_debut" value="<?php echo $row2['h_debut'];?>" />
+                            <input type="hidden" name="durée" value="<?php echo $row2['durée'];?>" />
                             <input type="submit" value="Edit"/><tb>
                             </form>
                         </tb>
