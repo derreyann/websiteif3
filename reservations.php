@@ -21,31 +21,56 @@ header("Location: profile.php?message=Vous n'êtes pas cotisant");
 <?php
 $sql="SELECT * FROM reservation ORDER BY date";
 $result = $conn->query($sql);
+echo $row['type_compte'];
 if(!empty($result) && $result->num_rows > 0) { ?>
-
     <table>
         <tr>
             <th>Joueur 1 </th>
             <th>Joueur 2 </th>
             <th>Terrain </th>
             <th>Date </th>
-            <th>Heure </th>
-            <th>Durée</th>
+            <th>Horaire </th>
+            <th>Durée</th><th>
+            <th> </th>
+            <th> </th>
         </tr>
-        <?php    while ($row2 = $result->fetch_assoc()) { ?>
+        <?php while ($row2 = $result->fetch_assoc()) {?>
+
             <tr>
                 <td><?php echo $row2['id_user_1'] ?></td>
                 <td><?php echo $row2['id_user_2'] ?></td>
                 <td><?php echo $row2['id_terrain'] ?></td>
                 <td><?php echo $row2['date'] ?></td>
-                <td><?php echo$row2['h_debut'] ?></td>
-                <td><?php echo $row2['durée'], ' heure(s)' ?></td>
+                <td><?php echo $row2['h_debut'] ?></td>
+                <td><?php echo $row2['durée'] ?><tb>
+                <td><?php if($row['type_compte']==0){?>
+                        <form action="edit_reservation.php" method="POST">
+                        <input type="hidden" name="id1" value="<?php echo $row2['id_user_1'];?>" />
+                        <input type="hidden" name="id2" value="<?php echo $row2['id_user_2'];?>" />
+                        <input type="hidden" name="idterrain" value="<?php echo $row2['id_terrain'];?>" />
+                        <input type="hidden" name="date" value="<?php echo $row2['date'];?>" />
+                        <input type="hidden" name="h_debut" value="<?php echo $row2['h_debut'];?>" />
+                        <input type="hidden" name="durée" value="<?php echo $row2['durée'];?>" />
+                        <input type="submit" value="Edit"/><tb>
+                    </form><?php }?>
+                <td><?php if($row['type_compte']==0){?> <form action="aurevoir_reservation.php" method="POST">
+                        <input type="hidden" name="id1" value="<?php echo $row2['id_user_1'];?>" />
+                        <input type="hidden" name="id2" value="<?php echo $row2['id_user_2'];?>" />
+                        <input type="hidden" name="idterrain" value="<?php echo $row2['id_terrain'];?>" />
+                        <input type="hidden" name="date" value="<?php echo $row2['date'];?>" />
+                        <input type="hidden" name="h_debut" value="<?php echo $row2['h_debut'];?>" />
+                        <input type="hidden" name="durée" value="<?php echo $row2['durée'];?>" />
+                        <input type="submit" value="Delete"/><tb>
+                    </form><?php }?>
+                    </tb>
+                </td>
             </tr>
         <?php } ?>
     </table>
+
     <?php
 }else{
-    echo "Vous n'avez pas de réservations";
+    echo "Personne n'a réservé";
 }
 ?>
 
