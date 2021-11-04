@@ -6,6 +6,9 @@
 include("menu.php");
 include("BDD.php");
 
+if(!isset($_SESSION["mail"])){
+    header("Location: index.php?message=Veuillez vous connecter");
+}
 $sql="SELECT * FROM utilisateur WHERE mail=\"".$_SESSION["mail"]."\" AND MdP=PASSWORD(\"".$_SESSION["mdp"]."\");";
 $result=$conn->query($sql);
 $row = $result->fetch_assoc();
@@ -18,7 +21,7 @@ $row = $result->fetch_assoc();
 
 <body>
 <form id="form" name="form" method="post">
-  
+
 </form>
 </form>
 =======
