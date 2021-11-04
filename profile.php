@@ -6,6 +6,8 @@
 include("menu.php");
 include("BDD.php");
 
+
+
 if(!isset($_SESSION["mail"])){
     header("Location: index.php?message=Veuillez vous connecter");
 }
@@ -117,8 +119,15 @@ if(!empty($result) && $result->num_rows > 0) {
 <?php
 }else{
     echo "Vous n'avez pas de réservations";
-}
+}?>
+<br>
+<?php
+if (isset($_GET["message"])) {
+    echo $_GET["message"];
+}//Permet d'afficher un message d'erreur
 ?>
+<br>
+<br>
 <button onclick="window.location.href = 'reservations.php';">Ajouter une réservation</button>
 
 <p> </p>

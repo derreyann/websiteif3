@@ -12,6 +12,13 @@ echo $_GET["message"];
 <title>Faire une réservation</title>
 <h1>Réservations en cours</h1>
 <?php
+$sql="SELECT * FROM utilisateur WHERE mail=\"".$_SESSION["mail"]."\" ";
+$result = $conn->query($sql);
+$row = $result->fetch_assoc();
+if(!iscotisant($row['id'], $conn)){
+header("Location: profile.php?message=Vous n'êtes pas cotisant");
+};?>
+<?php
 $sql="SELECT * FROM reservation ORDER BY date";
 $result = $conn->query($sql);
 if(!empty($result) && $result->num_rows > 0) { ?>
