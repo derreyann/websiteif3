@@ -8,7 +8,7 @@
 <body>
 <h1>Modifier votre réservation : </h1>
 <?php
-echo '<form method="POST" action="add_reservations.php">
+echo '<form method="POST" action="apply_edit.php">
 
     <table>
     <tr><td><input type="hidden" name="oldj1" id="oldj1" value="'.$_POST['id1'].'"><td/></tr>
