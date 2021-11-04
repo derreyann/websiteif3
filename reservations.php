@@ -44,7 +44,7 @@ if(!empty($result) && $result->num_rows > 0) { ?>
                 <td><?php echo $row2['h_debut'] ?></td>
                 <td><?php echo $row2['durée'] ?><tb>
                 <td><?php if($row['type_compte']==0){?>
-                        <form action="edit_reservation.php" method="POST">
+                        <form action="edit_reservation_admin.php" method="POST">
                         <input type="hidden" name="id1" value="<?php echo $row2['id_user_1'];?>" />
                         <input type="hidden" name="id2" value="<?php echo $row2['id_user_2'];?>" />
                         <input type="hidden" name="idterrain" value="<?php echo $row2['id_terrain'];?>" />

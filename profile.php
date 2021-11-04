@@ -6,7 +6,7 @@
 include("menu.php");
 include("BDD.php");
 
-
+echo $_SESSION['mail'];
 
 if(!isset($_SESSION["mail"])){
     header("Location: index.php?message=Veuillez vous connecter");
