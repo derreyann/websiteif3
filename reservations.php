@@ -37,8 +37,14 @@ if(!empty($result) && $result->num_rows > 0) { ?>
         <?php while ($row2 = $result->fetch_assoc()) {?>
 
             <tr>
-                <td><?php echo $row2['id_user_1'] ?></td>
-                <td><?php echo $row2['id_user_2'] ?></td>
+                <td><?php $sql2="SELECT DISTINCT * FROM utilisateur WHERE id=\"".$row2["id_user_1"]."\"";
+                    $result2 = $conn->query($sql2);
+                    $row3 = $result2->fetch_assoc();
+                    echo $row3['nom'] ?></td>
+                <td><?php $sql2="SELECT DISTINCT * FROM utilisateur WHERE id=\"".$row2["id_user_2"]."\"";
+                    $result2 = $conn->query($sql2);
+                    $row3 = $result2->fetch_assoc();
+                    echo $row3['nom'] ?></td>
                 <td><?php echo $row2['id_terrain'] ?></td>
                 <td><?php echo $row2['date'] ?></td>
                 <td><?php echo $row2['h_debut'] ?></td>
