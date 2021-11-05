@@ -11,7 +11,7 @@ include("BDD.php");
 $sql="SELECT * FROM reservation WHERE date=\"".$_POST["date"]."\" AND (h_debut BETWEEN \"".$_POST["heure"]."\"-\"".$_POST["durée"]."\" AND \"".$_POST["heure"]."\"+\"".$_POST["durée"]."\");";
 $result = $conn->query($sql);
 
-//Si l'utilisateur existe, le renvois sur la page d'inscription avec une erreur
+//Si le créneau existe, le renvois sur la page d'inscription avec une erreur
 if(!empty($result) && $result->num_rows > 0) {
 
 header('Location: reservations.php?message=Créneau déjà pris');
