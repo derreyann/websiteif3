@@ -15,8 +15,6 @@ $row3 = $result3->fetch_assoc();
 $sql2="SELECT DISTINCT * from utilisateur WHERE id=\"".$_POST["id2"]."\"";
 $result2 = $conn->query($sql2);
 $row2 = $result2->fetch_assoc();
-echo $row2['mail'];
-echo $row3['mail'];
 echo '<form method="POST" action="apply_edit.php">
 
     <table>
