@@ -85,8 +85,9 @@ if(!empty($result) && $result->num_rows > 0) { ?>
 <form method="POST" action="add_reservations.php">
 
     <table>
-        <tr><td>Joueur 1:  <input type="text" name="j1" id="j1" required disabled value="<?php echo $row['id'] ?>"><td/></tr>
-        <tr><td>Joueur 2:  <input type="text" name="j2" id="j2" required><td/><tr/>
+        <tr><td><input type="hidden" name="j1" id="j1" required value="<?php echo $row['mail'] ?>"><td/></tr>
+        <tr><td>Joueur 1:  <input type="text" name="j1" id="j1" required disabled value="<?php echo $row['mail'] ?>"><td/></tr>
+        <tr><td>Joueur 2:  <input type="email" name="j2" id="j2" required><td/><tr/>
         <tr><td>Terrain : <select name="terrain" id="terrain" required>
                     <option value="0">Couvert</option>
                     <option value="1">Découvert 1</option>

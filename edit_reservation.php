@@ -7,7 +7,16 @@
 
 <body>
 <h1>Modifier votre réservation : </h1>
-<?php
+<?php include("menu.php");
+include("BDD.php");
+$sql3="SELECT DISTINCT * from utilisateur WHERE id=\"".$_POST["id1"]."\"";
+$result3 = $conn->query($sql3);
+$row3 = $result3->fetch_assoc();
+$sql2="SELECT DISTINCT * from utilisateur WHERE id=\"".$_POST["id2"]."\"";
+$result2 = $conn->query($sql2);
+$row2 = $result2->fetch_assoc();
+echo $row2['mail'];
+echo $row3['mail'];
 echo '<form method="POST" action="apply_edit.php">
 
     <table>
@@ -18,8 +27,9 @@ echo '<form method="POST" action="apply_edit.php">
         <tr><td><input type="hidden" name="olddate" id="olddate" value="'.$_POST["date"].'"><td/><tr/>
         <tr><td><input type="hidden" name="oldheure" id="oldheure" min="8" max="19" value="'.$_POST["h_debut"].'"><td/><tr/>
     <tr><td><input type="hidden" name="olddurée" id="olddurée" min="1" max="4" value="'.$_POST["durée"].'"><td/><tr/>
-        <tr><td>Joueur 1:  <input type="text" name="j1" id="j1" required disabled value="'.$_POST['id1'].'"><td/></tr>
-        <tr><td>Joueur 2:  <input type="text" name="j2" id="j2" required value="'.$_POST["id2"].'"><td/><tr/>
+    <tr><td><input type="hidden" name="j1" id="j1" required value="'.$row3['mail'].'"><td/></tr>
+    <tr><td>Joueur 1:  <input type="email" name="j1" id="j1" disabled required value="'.$row3['mail'].'"><td/></tr>
+        <tr><td>Joueur 2:  <input type="text" name="j2" id="j2" required value="'.$row2['mail'].'"><td/><tr/>
         <tr><td>Terrain : <select name="terrain" id="terrain" required value="'.$_POST["idterrain"].'">
                     <option value="0">Couvert</option>
                     <option value="1">Découvert 1</option>

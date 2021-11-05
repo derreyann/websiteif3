@@ -18,12 +18,18 @@ header('Location: reservations.php?message=Créneau déjà pris');
 
 }else{
 // inserer les information dans la base de donnée
+    $sql3="SELECT DISTINCT * from utilisateur WHERE mail=\"".$_POST["j1"]."\"";
+    $result3 = $conn->query($sql3);
+    $row3 = $result3->fetch_assoc();
+    $sql2="SELECT DISTINCT * from utilisateur WHERE mail=\"".$_POST["j2"]."\"";
+    $result2 = $conn->query($sql2);
+    $row2 = $result2->fetch_assoc();
     $sql="SET foreign_key_checks = 0";
     $result = $conn->query($sql);
-    $sql="INSERT INTO reservation (id_user_1, id_user_2, id_terrain, date, h_debut, durée) VALUES (\"".$_POST["j1"]."\",\"".$_POST["j2"]."\",\"".$_POST["terrain"]."\", \"".$_POST["date"]."\",\"".$_POST["heure"]."\",\"".$_POST["durée"]."\")";
+    $sql="INSERT INTO reservation (id_user_1, id_user_2, id_terrain, date, h_debut, durée) VALUES (\"".$row3["id"]."\",\"".$row2['id']."\",\"".$_POST["terrain"]."\", \"".$_POST["date"]."\",\"".$_POST["heure"]."\",\"".$_POST["durée"]."\")";
     $conn->query($sql);
 //Le revoie sur son profile
-    header('Location: profile.php');
+   header('Location: profile.php');
 }?>
 
 </body>
