@@ -21,6 +21,7 @@ echo '<nav>
 			<li><a href="profile.php">Votre profile</a></li>
 			<li><a href="recherche.php">Chercher un utilisateur</a></li>
 			<li><a href="deconnexion.php">Deconnexion</a></li>
+			<li><a href="reservations.php">Reservation</a></li>
 		 </ul>
 		</nav>';
 	} ?>
