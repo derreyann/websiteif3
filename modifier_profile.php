@@ -5,6 +5,21 @@
         align-content : center;
         background-color : ;
     }
+    h1{
+        vertical-align: center;
+        position: center;
+        padding-top: 250px;
+    }
+    input {
+        text-align: center;
+        align-content: center;
+        border-radius: 10px;
+        position: relative;
+        content-visibility: revert
+        background-color: #1a1a1a;
+        height : 35px;
+        margin-top
+        display: flex;
 </style>
 <html>
 <head>

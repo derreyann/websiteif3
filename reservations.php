@@ -1,5 +1,41 @@
 <!doctype html>
 <html>
+<style>
+    form, tr, td, input, submit, button, table, p, h1{
+        text-align: center;
+        align-content : center;
+    }
+    h1{
+        vertical-align: center;
+        position: center;
+        padding-top: 100px;
+    }
+    select, input {
+        text-align: center;
+        align-content: center;
+        border-radius: 10px;
+        position: relative;
+        content-visibility: revert
+        background-color: #1a1a1a;
+        height : 35px;
+        width:150px;
+    }
+    .button{
+        text-align: center;
+        align-content : center;
+        background-color: #4e4e4e;
+        border-radius: 12px;
+        border: 0;
+        box-sizing: border-box;
+        color: #eee;
+        cursor: pointer;
+        font-size: 15.5px;
+        height: 45px;
+    // outline: 0;
+        width: 12%;
+        margin-left:10px;
+    }
+</style>
 <head>
 </head>
 <body>
@@ -20,14 +56,14 @@ header("Location: profile.php?message=Vous n'êtes pas cotisant");
 };
 //If the user is an admin show a buton to classement_reservation.php
 if($row['type_compte']==0){
-echo "<a href=\"classement_reservation.php\">Classement des réservations</a>";
+echo "<a class=\"button\" href=\"classement_reservation.php\">Classement des réservations</a><br>";
 }
 
 $sql="SELECT * FROM reservation WHERE date>=CURRENT_DATE ORDER BY date;";
 $result = $conn->query($sql);
 
 if(!empty($result) && $result->num_rows > 0) { ?>
-    <table>
+    <table class="table">
         <tr>
             <th>Joueur 1 </th>
             <th>Joueur 2 </th>
@@ -88,19 +124,19 @@ if(!empty($result) && $result->num_rows > 0) { ?>
 <h1>Faire une réservation</h1>
 <form method="POST" action="add_reservations.php">
 
-    <table>
+    <center><table>
         <tr><td><input type="hidden" name="j1" id="j1" required value="<?php echo $row['mail'] ?>"><td/></tr>
-        <tr><td>Joueur 1:  <input type="text" name="j1" id="j1" required disabled value="<?php echo $row['mail'] ?>"><td/></tr>
-        <tr><td>Joueur 2: (si invité, laisser libre)  <input type="text" name="j2" id="j2"><td/><tr/>
-        <tr><td>Terrain : <select name="terrain" id="terrain" required>
+        <tr><td>Joueur 1: <br> <input type="text" name="j1" id="j1" required disabled value="<?php echo $row['mail'] ?>"><td/></tr>
+        <tr><td>Joueur 2: (si invité, laisser libre)  <br><input type="text" name="j2" id="j2"><td/><tr/>
+        <tr><td>Terrain : <br><select name="terrain" id="terrain" required>
                     <option value="0">Couvert</option>
                     <option value="1">Découvert 1</option>
                     <option value="2" selected>Découvert 2</option>
                 </select><td/><tr/>
-        <tr><td>Date:  <input type="date" name="date" id="date" required><td/><tr/>
-        <tr><td>Heure: <input type="number" name="heure" id="heure" min="8" max="19" required> h<td/><tr/></table>
-        <tr><td>Durée (h): <input type="number" name="durée" id="durée" min="1" max="4" required><td/><tr/></table>
-    <br><br>
-    <input type="submit"></form>
+        <tr><td>Date:  <br><input type="date" name="date" id="date" required><td/><tr/>
+        <tr><td>Horaire (h): <br><input type="number" name="heure" id="heure" min="8" max="19" required><td/><tr/>
+        <tr><td>Durée (h): <br><input type="number" name="durée" id="durée" min="1" max="4" required><td/><tr/></table></center>
+    <br>
+    <input type="submit"></form><br>
 </body>
 </html>
