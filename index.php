@@ -2,6 +2,14 @@
 <html>
 <head>
 <meta charset="utf-8">
+    <style>
+        form, tr, td, input, submit, button, table, p{
+            text-align: center;
+            align-content : center;
+            background-color : ;
+        }
+
+    </style>
 <title>Accueil</title>
 </head>
 
@@ -14,8 +22,9 @@
 	?>
 	<form method="POST" action="connexion.php">
 		<table>
-			<tr><td>E-mail:</td><td> <input type="email" name="email1" id="email1" required></td></tr>
-			<tr><td>Mot de passe:</td><td><input type="password" name="pass1" id="pass1" required></td></tr></table>
+			E-mail:<br><input type="email" name="email1" id="email1" required><br>
+			Mot de passe:<br><input type="password" name="pass1" id="pass1" required></table>
+        <br>
 		
 		<input type="submit" value="Se connecter">
 	</form>

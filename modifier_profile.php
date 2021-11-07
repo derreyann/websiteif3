@@ -1,4 +1,11 @@
 <!doctype html>
+<style>
+    form, tr, td, input, submit, button, table, p, h1{
+        text-align: center;
+        align-content : center;
+        background-color : ;
+    }
+</style>
 <html>
 <head>
 <meta charset="utf-8">
@@ -6,7 +13,8 @@
 </head>
 
 <body>
-	<?php 
+
+    <?php
 	include("menu.php");
 	//Se connecte à la base de donnée
 	include("BDD.php"); 
@@ -48,12 +56,13 @@
 
 				}
 				//Affiche un fomulaire aec les donnée de l'utilisateur pré remplis
-				echo'<form method="POST" action="appliquer_modification.php?id='.$id.'">
+                ?><center><h1>Modifier profil</h1></center><?php
+                echo'<form method="POST" action="appliquer_modification.php?id='.$id.'">
 				<table>
-				<tr><td>Nom:<td/><td> <input type="text" name="nom" id="nom" value="'.$row["nom"].'"><td/></tr>
-				<tr><td>Prénom:<td/><td> <input type="text" name="prenom" id="prenom" value="'.$row["prenom"].'"><td/><tr/>
-				<tr><td>E-mail:<td/><td> <input type="email" name="email" id="email" value="'.$row["mail"].'"><td/><tr/>
-				<tr><td>Date de naissance:<td/><td> <input type="date" name="date" id="date" value="'.$row["naissance"].'"><td/><tr/></table>
+				Nom:<br> <input type="text" name="nom" id="nom" value="'.$row["nom"].'"><br>
+				Prénom:<br><input type="text" name="prenom" id="prenom" value="'.$row["prenom"].'"><br>
+				E-mail:<br><input type="email" name="email" id="email" value="'.$row["mail"].'"><br>
+				Date de naissance:<br><input type="date" name="date" id="date" value="'.$row["naissance"].'"<br></table><br>
 				<input type="submit"></form>';
 
 			} else {

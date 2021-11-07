@@ -123,7 +123,5 @@ if (isset($_GET["message"])) {
 
 <button onclick="window.location.href = 'reservations.php';">Ajouter une réservation</button>
 
-<h1>Mon historique</h1>
-
 </body>
 </html>

@@ -1,4 +1,9 @@
 <!doctype html>
+<style>
+    input, form{
+        text-align: center;
+    }
+</style>
 <html>
 <head>
 <meta charset="utf-8">
@@ -9,8 +14,8 @@
 	<?php include("menu.php");
 		?>
 	<form method="POST" action="recherche.php">
-		Recherche: <input type="text" name="recherche" id="recherche"><br/>
-		<input type="submit">		
+		Recherche:<br><input type="text" name="recherche" id="recherche">
+		<br> <input type="submit">
 	</form>
 	
 	<?php
