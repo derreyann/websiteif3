@@ -16,6 +16,7 @@
 // Créer connection
 $conn = new mysqli($servername, $username, $password, $db_name);
 
+	// Check a user is cotisant
 	function iscotisant($id,$conn)
 	{	
 		$sql='SELECT * FROM licence WHERE user_id="'.$id.'"';
@@ -24,6 +25,7 @@ $conn = new mysqli($servername, $username, $password, $db_name);
 			
 		$cotisant=FALSE;
 
+			//Select all the rows where the user is cotisan in the licences table
 			if($result->num_rows > 0) {
 
 				$i=1;
@@ -35,7 +37,7 @@ $conn = new mysqli($servername, $username, $password, $db_name);
 					$date_actuel=strtotime(date('Y-m-d'));
 
 					$date_fin_cotisation=strtotime("+".$row['durée']." days",strtotime($row['date_souscription']));
-
+					//Check if it is a cotisant actually
 					if($date_actuel <= $date_fin_cotisation){
 						$cotisant=TRUE;
 					}
