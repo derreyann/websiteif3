@@ -6,8 +6,6 @@
 include("menu.php");
 include("BDD.php");
 
-echo $_SESSION['mail'];
-
 if(!isset($_SESSION["mail"])){
     header("Location: index.php?message=Veuillez vous connecter");
 }
@@ -26,8 +24,6 @@ $row = $result->fetch_assoc();
 
 </form>
 </form>
-=======
- // penser à mettre blob photo profil dans dbb pour pouvoir avoir truc joil
 <table>
 <tr>
 <td>Prénom :</td><td><?php echo $row["prenom"]; ?></td>
@@ -58,21 +54,12 @@ if($row["type_compte"] == 0){
 </tr>
 </table>
 
-
-<p> </p>
-
 <h1>Mes réservations</h1>
 
 <?php
-// A REMPLACER AVEC LES IDS USERS 1 (FAITS PAR USER SESSION)
-// CODE A REUTILISER POUR LES MATCH JOUES, FACILE A ADAPTER MAIS CASSE COUILLE AU DEBUT
 $sql="SELECT DISTINCT id_user_1, id_user_2, id_terrain, date, h_debut, durée FROM reservation INNER JOIN utilisateur ON id_user_1=\"".$row["id"]."\" ORDER BY date";
 $result = $conn->query($sql);
-if(!empty($result) && $result->num_rows > 0) {
-    /* while ($row2 = $result->fetch_assoc()) {
-        //CONVERTIR LES PRENOMS ET LES NOMS DE L'ID JOUEUR2  + AVEC LES VARIABLES CONVERTIES DU TERRAIN
-        print_r($row2['id_user_1']);
-        echo "<p> </p>"; */?>
+if(!empty($result) && $result->num_rows > 0) {?>
         <table>
         <tr>
         <th>Joueur 1 </th>
@@ -133,13 +120,10 @@ if (isset($_GET["message"])) {
     echo $_GET["message"];
 }//Permet d'afficher un message d'erreur
 ?>
-<br>
-<br>
+
 <button onclick="window.location.href = 'reservations.php';">Ajouter une réservation</button>
 
-<p> </p>
 <h1>Mon historique</h1>
-
 
 </body>
 </html>
