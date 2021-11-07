@@ -11,6 +11,7 @@
 <?php
 include("BDD.php");
 include("menu.php");
+//check if the user is admin
 if(!isset($_SESSION['mail'])){
     header("Location:index.php?message=Veuillez vous connecter");
 }
