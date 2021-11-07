@@ -57,7 +57,7 @@ if($row["type_compte"] == 0){
 <td>Type de compte:</td><td><?php echo $type; ?></td>
 </tr>
 </table>
-<?php echo "Ton id est ", $row["id"]; ?>
+
 
 <p> </p>
 
