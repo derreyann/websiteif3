@@ -48,7 +48,10 @@ $conn = new mysqli($servername, $username, $password, $db_name);
 			}else{
 			}
 		return $cotisant;
-	}
+
+    }
+    $sql = 'DELETE FROM reservation WHERE date < CURRENT_DATE;';
+    $conn->query($sql);
 	?>
 </body>
 </html>
