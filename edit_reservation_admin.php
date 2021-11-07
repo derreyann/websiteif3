@@ -46,7 +46,11 @@ echo '<form method="POST" action="apply_edit.php">
                 </select><td/><tr/>
         <tr><td>Date:  <input type="date" name="date" id="date" required value="'.$_POST["date"].'"><td/><tr/>
         <tr><td>Heure: <input type="number" name="heure" id="heure" min="8" max="19" required value="'.$_POST["h_debut"].'"><td/><tr/>
-    <tr><td>Durée (h): <input type="number" name="durée" id="durée" min="1" max="4" required value="'.$_POST["durée"].'"><td/><tr/></table>
+    <tr><td>Durée (h): <input type="number" name="durée" id="durée" min="1" max="4" required value="'.$_POST["durée"].'"><td/><tr/>
+    <tr><td>Réserver le créneau combien de semaines <input type="number" name="repeating" id="repeating" min="1" max="52"><td/><tr/>
+
+    </table>
+    
     <br><br>
     <input type="submit"></form>'?>
 </body>
