@@ -57,7 +57,7 @@ if($row["type_compte"] == 0){
 <h1>Mes réservations</h1>
 
 <?php
-$sql="SELECT DISTINCT id_user_1, id_user_2, id_terrain, date, h_debut, durée FROM reservation INNER JOIN utilisateur ON id_user_1=\"".$row["id"]."\" ORDER BY date";
+$sql="SELECT DISTINCT id_user_1, id_user_2, id_terrain, date, h_debut, durée FROM reservation INNER JOIN utilisateur ON id_user_1=\"".$row["id"]."\" WHERE date > CURRENT_DATE ORDER BY date;";
 $result = $conn->query($sql);
 if(!empty($result) && $result->num_rows > 0) {?>
         <table>
@@ -123,5 +123,46 @@ if (isset($_GET["message"])) {
 
 <button onclick="window.location.href = 'reservations.php';">Ajouter une réservation</button>
 
+<h1>Mon historique</h1>
+<?php
+$sql="SELECT DISTINCT id_user_1, id_user_2, id_terrain, date, h_debut, durée FROM reservation INNER JOIN utilisateur ON id_user_1=\"".$row["id"]."\" WHERE date < CURRENT_DATE ORDER BY date";
+$result = $conn->query($sql);
+if(!empty($result) && $result->num_rows > 0) {?>
+    <table>
+        <tr>
+            <th>Joueur 1 </th>
+            <th>Joueur 2 </th>
+            <th>Terrain </th>
+            <th>Date </th>
+            <th>Horaire </th>
+            <th>Durée</th><th>
+            <th> </th>
+            <th> </th>
+        </tr>
+        <?php while ($row2 = $result->fetch_assoc()) {?>
+
+            <tr>
+                <td><?php
+                    $sql2="SELECT DISTINCT * FROM utilisateur WHERE id=\"".$row2["id_user_1"]."\"";
+                    $result2 = $conn->query($sql2);
+                    $row3 = $result2->fetch_assoc();
+                    echo $row3['nom'] ?></td>
+                <td><?php $sql2="SELECT DISTINCT * FROM utilisateur WHERE id=\"".$row2["id_user_2"]."\"";
+                    $result2 = $conn->query($sql2);
+                    $row3 = $result2->fetch_assoc();
+                    echo $row3['nom'] ?></td>
+                <td><?php echo $row2['id_terrain'] ?></td>
+                <td><?php echo $row2['date'] ?></td>
+                <td><?php echo $row2['h_debut'] ?></td>
+                <td><?php echo $row2['durée'] ?><tb>
+                <td></tb>
+                </td>
+            </tr>
+        <?php } ?>
+    </table>
+    <?php
+}else{
+    echo "Pas d'historique";
+}?>
 </body>
 </html>

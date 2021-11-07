@@ -23,7 +23,7 @@ if($row['type_compte']==0){
 echo "<a href=\"classement_reservation.php\">Classement des réservations</a>";
 }
 
-$sql="SELECT * FROM reservation ORDER BY date";
+$sql="SELECT * FROM reservation WHERE date>=CURRENT_DATE ORDER BY date;";
 $result = $conn->query($sql);
 
 if(!empty($result) && $result->num_rows > 0) { ?>
