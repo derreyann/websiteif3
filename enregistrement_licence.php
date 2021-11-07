@@ -8,13 +8,14 @@
 <body>
 		<?php
 	include("menu.php");
+	//check if the user is logged in
 	if(isset($_SESSION["mail"])){
 		echo $_GET["id"];
 		include("BDD.php");
 		$sql="SELECT * FROM utilisateur WHERE mail=\"".$_SESSION["mail"]."\" AND MdP=PASSWORD(\"".$_SESSION["mdp"]."\");";
 		$result2 = $conn->query($sql);
 		$row2= $result2->fetch_assoc();
-		//Verification admin
+		//Check si l'utilisateur est un admin
 		if($row2["type_compte"]==0){
 			$sql="INSERT INTO licence (user_id,durée,date_souscription) VALUES ('".$_GET["id"]."','".$_POST["nb_jours"]."','".date('Y-m-d')."')";
 			$conn->query($sql);

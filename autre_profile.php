@@ -8,7 +8,7 @@
 <body>
 <?php
 	include("menu.php");
-	
+	//Check if the user is logged in
 	if(isset($_SESSION["mail"])){
 		
 		include("BDD.php");
@@ -66,15 +66,11 @@ if($row["type_compte"] == 0){
 <h1>Les réservations</h1>
 
 <?php
-// A REMPLACER AVEC LES IDS USERS 1 (FAITS PAR USER SESSION)
-// CODE A REUTILISER POUR LES MATCH JOUES, FACILE A ADAPTER MAIS CASSE COUILLE AU DEBUT
+
 $sql="SELECT DISTINCT id_user_1, id_user_2, id_terrain, date, h_debut, durée FROM reservation INNER JOIN utilisateur ON id_user_1=\"".$row["id"]."\" ORDER BY date";
 $result = $conn->query($sql);
 if(!empty($result) && $result->num_rows > 0) {
-    /* while ($row2 = $result->fetch_assoc()) {
-        //CONVERTIR LES PRENOMS ET LES NOMS DE L'ID JOUEUR2  + AVEC LES VARIABLES CONVERTIES DU TERRAIN
-        print_r($row2['id_user_1']);
-        echo "<p> </p>"; */?>
+    ?>
         <table>
         <tr>
         <th>Joueur 1 </th>
@@ -128,6 +124,7 @@ if (isset($_GET["message"])) {
 			if($row2["type_compte"]==0){
 				echo'<button onclick="window.location.href = \'modifier_profile.php?id='.$_GET["id"].'\';">Modifier Profile</button>';
 				echo'<button onclick="window.location.href = \'licence.php?id='.$_GET["id"].'\';">Ajouter Licence</button>';
+                echo'<button onclick="window.location.href = \'upgrade_admin.php?id='.$_GET["id"].'\';">Mettre admin</button>';
 			}
 			
 		}else{

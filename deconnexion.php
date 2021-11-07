@@ -7,6 +7,7 @@
 
 <body>
     <?php
+//Unconnect a user
 session_start();
 unset($_SESSION);
 session_destroy();
