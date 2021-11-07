@@ -17,11 +17,15 @@ $result = $conn->query($sql);
 $row = $result->fetch_assoc();
 if(!iscotisant($row['id'], $conn)){
 header("Location: profile.php?message=Vous n'êtes pas cotisant");
-};?>
-<?php
+};
+//If the user is an admin show a buton to classement_reservation.php
+if($row['type_compte']==0){
+echo "<a href=\"classement_reservation.php\">Classement des réservations</a>";
+}
+
 $sql="SELECT * FROM reservation ORDER BY date";
 $result = $conn->query($sql);
-echo $row['type_compte'];
+
 if(!empty($result) && $result->num_rows > 0) { ?>
     <table>
         <tr>

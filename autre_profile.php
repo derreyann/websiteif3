@@ -106,6 +106,9 @@ if(!empty($result) && $result->num_rows > 0) {
             <?php } ?>
         </table>
 <?php
+//Print number of reservation
+echo "Nombre de réservations : ", $result->num_rows;
+
 }else{
     echo "Il n'a pas de réservations";
 }?>
