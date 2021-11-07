@@ -1,10 +1,24 @@
 <!doctype html>
 <style>
-    form, tr, td, input, submit, button, table, p{
+    form, tr, td, input, submit, button, table, p, h1{
         text-align: center;
         align-content : center;
         background-color : ;
     }
+    h1{
+        vertical-align: center;
+        position: center;
+        padding-top: 100px;
+    }
+    select, input {
+        text-align: center;
+        align-content: center;
+        border-radius: 10px;
+        position: relative;
+        content-visibility: revert
+        background-color: #1a1a1a;
+        height : 35px;
+        width:150px;}
 </style>
 <html>
 <head>

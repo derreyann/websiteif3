@@ -1,8 +1,22 @@
 <!doctype html>
 <style>
-    input, form{
+    form, tr, td, input, submit, button, table, p, h1{
         text-align: center;
+        align-content : center;
     }
+    h1{
+        vertical-align: center;
+        position: center;
+        padding-top: 250px;
+    }
+    input {
+        text-align: center;
+        align-content: center;
+        border-radius: 10px;
+        position: relative;
+        content-visibility: revert
+        background-color: #1a1a1a;
+        height : 35px;
 </style>
 <html>
 <head>
@@ -15,7 +29,7 @@
 		?>
 	<form method="POST" action="recherche.php">
 		Recherche:<br><input type="text" name="recherche" id="recherche">
-		<br> <input type="submit">
+		<input type="submit">
 	</form>
 	
 	<?php
