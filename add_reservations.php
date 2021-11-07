@@ -8,7 +8,7 @@
 <body>
 <?php
 include("BDD.php");
-$sql="SELECT * FROM reservation WHERE date=\"".$_POST["date"]."\" AND (h_debut BETWEEN \"".$_POST["heure"]."\"-\"".$_POST["durée"]."\" AND \"".$_POST["heure"]."\"+\"".$_POST["durée"]."\");";
+$sql="SELECT * FROM reservation WHERE id_terrain=\"".$_POST["terrain"]."\" AND date=\"".$_POST["date"]."\" AND (h_debut BETWEEN \"".$_POST["heure"]."\"-\"".$_POST["durée"]."\" AND \"".$_POST["heure"]."\"+\"".$_POST["durée"]."\");";
 $result = $conn->query($sql);
 
 //Si le créneau existe, le renvois sur la page d'inscription avec une erreur
