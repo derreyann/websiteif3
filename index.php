@@ -62,15 +62,18 @@
     </style>
 <title>Accueil</title>
 </head>
-<h1>Salut !</h1><br>
+<?php include("menu.php");
+if(isset($_GET["message"])){
+    echo $_GET["message"];
+}//Permet d'affiché un message d'erreur
+?>
 <body>
 	<p>
-	<?php include("menu.php");
-	if(isset($_GET["message"])){
-	echo $_GET["message"];
-	}//Permet d'affiché un message d'erreur
-	?>
-	<form method="POST" action="connexion.php">
+
+
+    <h1>Salut !</h1><br>
+
+    <form method="POST" action="connexion.php">
 		<table>
 			E-mail:<br><input type="email" name="email1" id="email1" required><br>
 			Mot de passe:<br><input type="password" name="pass1" id="pass1" required></table>

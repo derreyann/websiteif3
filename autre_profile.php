@@ -1,11 +1,47 @@
 <!doctype html>
 <html>
+<style>
+    h1{
+        vertical-align: center;
+        position: center;
+        text-align: center;
+
+    }
+    .submit {
+        position: center;
+        background-color: #08d;
+        border-radius: 12px;
+        border: 0;
+        box-sizing: border-box;
+        color: #eee;
+        cursor: pointer;
+        font-size: 18px;
+        height: 50px;
+    / / outline: 0;
+        text-align: center;
+        width: 15%
+    }
+    .joe{
+        text-align: center;
+        align-content : center;
+        background-color: #4e4e4e;
+        border-radius: 12px;
+        border: 0;
+        box-sizing: border-box;
+        color: #eee;
+        cursor: pointer;
+        font-size: 18px;
+        height: 45px;
+    // outline: 0;
+        width: 12%;
+        margin-left:10px;
+    }
+</style>
 <head>
 <meta charset="utf-8">
 <title>Profile</title>
 </head>
 
-<body>
 <?php
 	include("menu.php");
 	//Check if the user is logged in
@@ -30,7 +66,7 @@
 
 </form>
 </form>
-<table>
+<table class="table">
 <tr>
 <td>Prénom :</td><td><?php echo $row["prenom"]; ?></td>
 </tr>
@@ -71,7 +107,7 @@ $sql="SELECT DISTINCT id_user_1, id_user_2, id_terrain, date, h_debut, durée FR
 $result = $conn->query($sql);
 if(!empty($result) && $result->num_rows > 0) {
     ?>
-        <table>
+        <table class="table">
         <tr>
         <th>Joueur 1 </th>
         <th>Joueur 2 </th>
@@ -125,9 +161,9 @@ if (isset($_GET["message"])) {
 			$row2= $result2->fetch_assoc();
 			//Verification admin
 			if($row2["type_compte"]==0){
-				echo'<button onclick="window.location.href = \'modifier_profile.php?id='.$_GET["id"].'\';">Modifier Profile</button>';
-				echo'<button onclick="window.location.href = \'licence.php?id='.$_GET["id"].'\';">Ajouter Licence</button>';
-                echo'<button onclick="window.location.href = \'upgrade_admin.php?id='.$_GET["id"].'\';">Mettre admin</button>';
+				echo'<br><center><button class="submit" onclick="window.location.href = \'modifier_profile.php?id='.$_GET["id"].'\';">Modifier Profile</button></center>';
+				echo'<br><center><button class="submit" onclick="window.location.href = \'licence.php?id='.$_GET["id"].'\';">Ajouter Licence</button></center>';
+                echo'<br><center><button class="submit" onclick="window.location.href = \'upgrade_admin.php?id='.$_GET["id"].'\';">Mettre admin</button></center>';
 			}
 			
 		}else{

@@ -16,7 +16,8 @@
         position: relative;
         content-visibility: revert
         background-color: #1a1a1a;
-        height : 35px;
+        height : 35px;}
+    
 </style>
 <html>
 <head>
@@ -45,7 +46,7 @@
 			$result = $conn->query($sql);
 			//Show the user that have been found
 			if($result->num_rows > 0) {
-				echo "<table><tr><td>Nom</td><td>Prénom</td></td>";
+				echo "<table class='table'><tr><td>Nom</td><td>Prénom</td></td>";
 				while($row = $result->fetch_assoc()){
 					
 					echo "<tr><td><a href='autre_profile.php?id=".$row['id']."'>".$row['nom']."</a></td><td><a href='autre_profile.php?id=".$row['id']."'>".$row['prenom']."</a></td></tr>";
