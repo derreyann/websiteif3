@@ -2,6 +2,11 @@
 *Club de Badminton
 Derré Yann, Becker Esteban*
 
+## Aperçu
+
+![Screenshot 2022-03-21 at 14.51.28](https://i.imgur.com/OtmYvG9.png)
+![Screenshot 2022-03-21 at 14.51.20](https://i.imgur.com/5U6RX3U.png)
+![Screenshot 2022-03-21 at 14.51.10](https://i.imgur.com/Ik2ptxI.jpg)
 ## **Table des matières**
 [Introduction :	3](#_Toc87269488)
 [Organisation :	3](#_Toc87269489)
